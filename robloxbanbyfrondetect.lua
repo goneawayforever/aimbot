@@ -38,7 +38,38 @@ local Tab = Window:CreateTab("Shooting", 4483362458)
 local Button = Tab:CreateButton({
     Name = "Smooth YNC Camlock (HITS MORE SHOTS)",
     Callback = function()
- Dim2.new(0, 200, 0, 50)
+        local Player = game.Players.LocalPlayer
+        local Camera = workspace.CurrentCamera
+        local Holding = false
+        local e = false
+        local isdoing = false
+
+        local screenGui = Instance.new("ScreenGui")
+        screenGui.Parent = Player.PlayerGui
+
+        local statusLabel = Instance.new("TextLabel")
+        statusLabel.Size = UDim2.new(0, 200, 0, 50)
+        statusLabel.Position = UDim2.new(0.5, -100, 0, 10)
+        statusLabel.BackgroundTransparency = 0.5
+        statusLabel.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+        statusLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+        statusLabel.TextScaled = true
+        statusLabel.Text = "Not in Range"
+        statusLabel.Parent = screenGui
+
+        local noBallLabel = Instance.new("TextLabel")
+        noBallLabel.Size = UDim2.new(0, 200, 0, 50)
+        noBallLabel.Position = UDim2.new(0.5, -100, 0, 70)
+        noBallLabel.BackgroundTransparency = 0.5
+        noBallLabel.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+        noBallLabel.TextColor3 = Color3.fromRGB(255, 0, 0)
+        noBallLabel.TextScaled = true
+        noBallLabel.Text = "No Ball"
+        noBallLabel.Parent = screenGui
+        noBallLabel.Visible = true
+
+        local dunkingRangeLabel = Instance.new("TextLabel")
+        dunkingRangeLabel.Size = UDim2.new(0, 200, 0, 50)
         dunkingRangeLabel.Position = UDim2.new(0.5, -100, 0, 130)
         dunkingRangeLabel.BackgroundTransparency = 0.5
         dunkingRangeLabel.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
